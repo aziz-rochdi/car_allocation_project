@@ -1,12 +1,5 @@
 <?php
 
-function email_valide($email){
-    if(filter_var($email, FILTER_VALIDATE_EMAIL))
-        return true;
-    else
-        return false;
-}
-
 // Include the database configuration file 
 include_once 'dbConfig.php';
   
@@ -62,25 +55,10 @@ include_once 'dbConfig.php';
     </script>
 </head>
 
-<body style="background: rgb(234,206,206);">
-    <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
-        <div class="container-fluid"><a class="navbar-brand" href="#"><i class="icon ion-model-s" id="brand-logo"></i></a><span>ROCHDI CAR</span><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cars.php">Cars</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact us</a></li>
-                    <li class="nav-item text-center"><a class="nav-link" href="#"></a>
-                        <div class="nav-item dropdown" style="color: red;"><a aria-expanded="false" data-toggle="dropdown" href="#" style="color: white;"><i class="fa fa-user-circle-o"></i></a>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="login.html">log in</a><a class="dropdown-item" href="sign_up.html">sign up</a><a class="dropdown-item" href="#">profil</a></div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+<body>
+    <?php
+    include 'header.php';
+    ?>
     <div class="filter">
             <br>
             <h2 class="text-center">chercher avec filtres </h2>
@@ -139,11 +117,6 @@ include_once 'dbConfig.php';
                                                 <div class="carousel-inner" role="listbox">
                                                     <div class="carousel-item active"><img src="http://localhost/fichiers/<?=$row['image_path']?>" alt="image du voiture" class="images"></div>
                                                     <?php
-                                                        // $requete = $bdd->prepare('CALL get_voiture_images(?)');
-                                                        // $requete2 = $bdd->prepare('CALL get_voiture_images(?)');
-                                                        // $requete->execute(array($row['id_voiture']));
-
-                                                        // while($donnee = $requete->fetch())
 
                                                         $requete = $bdd->prepare('CALL get_voiture_images(?)');
                                                         $requete->execute(array($row['id_voiture']));
@@ -153,7 +126,7 @@ include_once 'dbConfig.php';
                                                         foreach($images as $donne)
                                                         {
                                                     ?>
-                                                            <div class="carousel-item"><img src="http://localhost/fichiers/<?=$donnee['nom']?>" alt="image du voiture" class="images"></div>
+                                                            <div class="carousel-item"><img src="http://localhost/fichiers/<?=$donne['nom']?>" alt="image du voiture" class="images"></div>
                                                         <?php
                                                         }
                                                         ?>
@@ -162,12 +135,10 @@ include_once 'dbConfig.php';
                                                     <li class="active" data-target="#bs4_sldr_commerce<?=$row['id_voiture']?>" data-slide-to="0"><img src="http://localhost/fichiers/<?=$row['image_path']?>" alt="image du voiture"></li>
                                                     <?php
                                                         $comteur = 1;
-                                                        // $requete2->execute(array($row['id_voiture']));
-                                                        // while($donnee = $requete2->fetch())
                                                         foreach($images2 as $donne)
                                                         {
                                                     ?>
-                                                    <li data-target="#bs4_sldr_commerce<?=$row['id_voiture']?>" data-slide-to="<?=$comteur?>"><img src="http://localhost/fichiers/<?=$donnee['nom']?>" alt="image du voiture"></li>
+                                                    <li data-target="#bs4_sldr_commerce<?=$row['id_voiture']?>" data-slide-to="<?=$comteur?>"><img src="http://localhost/fichiers/<?=$donne['nom']?>" alt="image du voiture"></li>
                                                     <?php
                                                         $comteur+=1;
                                                         }
@@ -243,32 +214,10 @@ include_once 'dbConfig.php';
             </div>
         </div>
     </div>
-    <footer>
-        <div class="row">
-            <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#">rochdi car</a></h3>
-                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Cars</a><strong>&nbsp;</strong><a href="#"></a><strong> · </strong><a href="#">About</a><strong> &nbsp;· </strong><a href="#">Contact</a></p>
-                <p class="company-name">rochdi car © 2021</p>
-            </div>
-            <div class="col-sm-6 col-md-4 footer-contacts">
-                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                    <p><span class="new-line-span">211 majmaa elkair</span>settat, maroc</p>
-                </div>
-                <div><i class="fa fa-phone footer-contacts-icon"></i>
-                    <p class="footer-center-info email text-left"> +212 6 13 53 44 51</p>
-                </div>
-                <div><i class="fa fa-envelope footer-contacts-icon"></i>
-                    <p> <a href="#" target="_blank">aziz20rochdi@gmail.com</a></p>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-md-4 footer-about">
-                <h4>About the company</h4>
-                <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
-            </div>
-        </div>
-    </footer>
+    <?php
+    // Include the database configuration file 
+    include_once 'footer.php';
+    ?>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Button-modal-ecommerce.js"></script>

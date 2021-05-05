@@ -39,35 +39,27 @@ if ($prix1 != ''){
                                                 <div class="carousel-inner" role="listbox">
                                                     <div class="carousel-item active"><img src="http://localhost/fichiers/<?=$row['image_path']?>" alt="image du voiture" class="images"></div>
                                                     <?php
-                                                        // $requete = $bdd->prepare('CALL get_voiture_images(?)');
-                                                        // $requete2 = $bdd->prepare('CALL get_voiture_images(?)');
-                                                        // $requete->execute(array($row['id_voiture']));
-
-                                                        // while($donnee = $requete->fetch())
-
-                                                        $requete = $bdd->prepare('CALL get_voiture_images(?)');
-                                                        $requete->execute(array($row['id_voiture']));
-                                                        $images = $requete->fetchAll();
-                                                        $requete->closeCursor();
-                                                        $images2 = $images;
-                                                        foreach($images as $donne)
-                                                        {
+                                                    $requete = $bdd->prepare('CALL get_voiture_images(?)');
+                                                    $requete->execute(array($row['id_voiture']));
+                                                    $images = $requete->fetchAll();
+                                                    $requete->closeCursor();
+                                                    $images2 = $images;
+                                                    foreach($images as $donne)
+                                                    {
                                                     ?>
-                                                            <div class="carousel-item"><img src="http://localhost/fichiers/<?=$donnee['nom']?>" alt="image du voiture" class="images"></div>
-                                                        <?php
-                                                        }
-                                                        ?>
+                                                    <div class="carousel-item"><img src="http://localhost/fichiers/<?=$donne['nom']?>" alt="image du voiture" class="images"></div>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <ol class="carousel-indicators">
                                                     <li class="active" data-target="#bs4_sldr_commerce<?=$row['id_voiture']?>" data-slide-to="0"><img src="http://localhost/fichiers/<?=$row['image_path']?>" alt="image du voiture"></li>
                                                     <?php
                                                         $comteur = 1;
-                                                        // $requete2->execute(array($row['id_voiture']));
-                                                        // while($donnee = $requete2->fetch())
                                                         foreach($images2 as $donne)
                                                         {
                                                     ?>
-                                                    <li data-target="#bs4_sldr_commerce<?=$row['id_voiture']?>" data-slide-to="<?=$comteur?>"><img src="http://localhost/fichiers/<?=$donnee['nom']?>" alt="image du voiture"></li>
+                                                    <li data-target="#bs4_sldr_commerce<?=$row['id_voiture']?>" data-slide-to="<?=$comteur?>"><img src="http://localhost/fichiers/<?=$donne['nom']?>" alt="image du voiture"></li>
                                                     <?php
                                                         $comteur+=1;
                                                         }

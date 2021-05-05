@@ -6,7 +6,7 @@
 .register-photo .image-holder {
   display: table-cell;
   width: auto;
-  background: url(../../assets/img/meeting.jpg);
+  background: url(../../assets/img/car1.jpg);
   background-size: cover;
 }
 
@@ -15,7 +15,7 @@
   max-width: 900px;
   width: 90%;
   margin: 0 auto;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .register-photo form {
@@ -26,7 +26,7 @@
   color: #505e6c;
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
   .register-photo form {
     padding: 40px;
   }
@@ -66,7 +66,8 @@
   outline: none !important;
 }
 
-.register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+.register-photo form .btn-primary:hover,
+.register-photo form .btn-primary:active {
   background: #eb3b60;
 }
 
@@ -82,4 +83,3 @@
   opacity: 0.9;
   text-decoration: none;
 }
-

@@ -1,11 +1,5 @@
 <?php
 
-function email_valide($email){
-    if(filter_var($email, FILTER_VALIDATE_EMAIL))
-        return true;
-    else
-        return false;
-}
 
 function resize_img($image_path,$image_dest,$max_size = 300,$qualite = 100,$type = 'auto',$upload = false){
 

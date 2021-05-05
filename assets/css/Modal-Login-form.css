@@ -1,5 +1,6 @@
 body {
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
+  background: #a5b4c0;
 }
 
 .modal-login {
@@ -43,7 +44,8 @@ body {
   border-color: #00ce81;
 }
 
-.modal-login .form-control, .modal-login .btn {
+.modal-login .form-control,
+.modal-login .btn {
   min-height: 40px;
   border-radius: 3px;
 }
@@ -54,13 +56,15 @@ body {
   right: -5px;
 }
 
-.modal-login .btn, .modal-login .btn:active {
+.modal-login .btn,
+.modal-login .btn:active {
   border: none;
   background: #00ce81 !important;
   line-height: normal;
 }
 
-.modal-login .btn:hover, .modal-login .btn:focus {
+.modal-login .btn:hover,
+.modal-login .btn:focus {
   background: #00bf78 !important;
 }
 
@@ -77,4 +81,3 @@ body {
 .modal-login .modal-footer a {
   color: #999;
 }
-
