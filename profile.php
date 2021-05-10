@@ -68,7 +68,8 @@ if(isset($_SESSION['id'])){
       $requete->closeCursor();
       foreach ($result as $row) {
       ?>
-      <form method="post">
+      <form method="post" action="modifier_client_action.php">
+      <input value="<?=$row['id']?>" name="id_client" class="d-none"/>
         <div class="row">
           <div class="col-md-4">
             <div class="profile-img">
@@ -164,7 +165,7 @@ if(isset($_SESSION['id'])){
                     <label>Phone</label>
                   </div>
                   <div class="col-md-6">
-                    <input type="text" value="0613534451" name="phone" />
+                    <input type="text" value="0<?=$row['phone']?>" name="phone" />
                   </div>
                 </div>
                 <div class="row">
