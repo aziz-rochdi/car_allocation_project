@@ -194,8 +194,9 @@ include_once 'dbConfig.php';
                                                         <td><?=$row['prix_jour']?><span>DH</span></td>
                                                     </tr>
                                                 </table>
-                                                <form action="#">
-                                                    <div class="bs4_form_num"><label>nombre de jours</label><input class="form-control" type="number" name="quantity" min="1" max="20"></div>
+                                                <form action="reserver_voiture.php" method="POST">
+                                                    <input class="d-none" name="id_voiture" value="<?=$row['id_voiture']?>" />
+                                                    <div class="bs4_form_num"><label>nombre de jours</label><input class="form-control" type="number" name="nbr_jours" min="1" max="20"></div>
                                                     <div class="bs4_form_cmrce_btn"><button class="btn btn-primary bs4_btn_x_out_shtr" type="submit">reserver</button></div>
                                                 </form>
                                             </div>
