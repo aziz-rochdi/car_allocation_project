@@ -1,4 +1,5 @@
 <?php
+
   if(isset($_SESSION['id'])){
     $email = $_SESSION['email'];
   }
@@ -38,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
+              <a class="nav-link active" href="index.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="cars.php">Cars</a>
@@ -47,7 +48,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contact us</a>
             </li>
-            <li class="nav-item text-center">
+            <li class="nav-item ">
               <a class="nav-link" href="#"></a>
               <div class="nav-item dropdown" style="color: red">
                 <a
